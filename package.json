@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/eplp/portfolio-generator/issues"
   },
-  "homepage": "https://github.com/eplp/portfolio-generator#readme"
+  "homepage": "https://github.com/eplp/portfolio-generator#readme",
+  "dependencies": {
+    "inquirer": "^9.2.12"
+  }
 }
