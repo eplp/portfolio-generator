@@ -109,9 +109,23 @@ const promptUser = () => {
          },
       },
       {
+         type: 'confirm',
+         name: 'confirmAbout',
+         message: 'Would you like to enter some information about yourself for an "About" section?',
+         default: true,
+      },
+      {
+         //* this prompt will execute when the "when" condition is true ONLY
          type: 'input',
          name: 'about',
          message: 'Provide some information about yourself',
+         when: ({ confirmAbout }) => {
+            if (confirmAbout) {
+               return true;
+            } else {
+               return false;
+            }
+         },
       },
    ]);
 };
@@ -162,7 +176,6 @@ const promptProject = (portfolioData) => {
             type: 'input',
             name: 'link',
             message: 'Enter the GitHub link to your project. (Required)',
-            
          },
          {
             type: 'confirm',
