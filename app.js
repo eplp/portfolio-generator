@@ -1,5 +1,5 @@
 // const inquirer = require('inquirer');  //* does NOT work anymore
-import inquirer from 'inquirer'; //* requires to add "type": "module" in the package.json file or to rename app.js to app.mjs (preferred to add "type": "module")
+import inquirer from 'inquirer'; //* requires to add "type": "module" in the package.json file or to rename app.js to app.mjs (preferred method is to add "type": "module" to package.json)
 // const profileDataArgs = process.argv.slice(2);
 // const [profileName, github] = profileDataArgs; //* destructuring
 
