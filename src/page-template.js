@@ -53,12 +53,7 @@ const generateProjects = (projectsArr) => {
   `;
 };
 
-
-
-
 const generatePage = (templateData) => {
-   //  console.log('templateData - inside generatePage: ', templateData);
-
    //* destructuring templateData object using '...' rest operator
    const { projects, about, ...header } = templateData;
    return `
