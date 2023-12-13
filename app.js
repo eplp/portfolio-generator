@@ -3,10 +3,9 @@
 
 import inquirer from 'inquirer'; //* requires to add "type": "module" in the package.json file
 
-// const fs = require('node:fs/promises');
-// const fs = require('fs');
-// const generatePage = require('./src/page-template')
-
+// const fs = require('fs'); //* const fs = require('node:fs/promises');
+import fs from 'fs'; //* const fs = require('node:fs/promises');
+import { generatePage } from './src/page-template.js'; //* const generatePage = require('./src/page-template')
 // const profileDataArgs = process.argv.slice(2);
 // const [profileName, github] = profileDataArgs; //* destructuring
 
@@ -204,8 +203,59 @@ const promptProject = (portfolioData) => {
 //    .then((userAnswers) => console.log(userAnswers))
 //    .then(promptProject)
 //    .then((projectAnswers) => console.log('projectAnswers:', projectAnswers));
-promptUser()
-   .then(promptProject)
-   .then((portfolioData) => {
-      console.log('portfolioData:', portfolioData);
-   });
+// about: 'Duis consectetur nunc nunc. Morbi finibus non sapien nec pharetra. Fusce nec dignissim orci, ac interdum ipsum. Morbi mattis justo sed commodo pellentesque. Nulla eget fringilla nulla. Integer gravida magna mi, id efficitur metus tempus et.',
+
+const mockData = {
+   name: 'Lernantino',
+   github: 'lernantino',
+   confirmAbout: true,
+   about: '',
+   projects: [
+      {
+         name: 'Run Buddy',
+         description:
+            'Duis consectetur nunc nunc. Morbi finibus non sapien nec pharetra. Fusce nec dignissim orci, ac interdum ipsum. Morbi mattis justo sed commodo pellentesque. Nulla eget fringilla nulla. Integer gravida magna mi, id efficitur metus tempus et. Nam fringilla elit dapibus pellentesque cursus.',
+         languages: ['HTML', 'CSS'],
+         link: 'https://github.com/lernantino/run-buddy',
+         feature: true,
+         confirmAddProject: true,
+      },
+      {
+         name: 'Taskinator',
+         description:
+            'Duis consectetur nunc nunc. Morbi finibus non sapien nec pharetra. Fusce nec dignissim orci, ac interdum ipsum. Morbi mattis justo sed commodo pellentesque. Nulla eget fringilla nulla. Integer gravida magna mi, id efficitur metus tempus et. Nam fringilla elit dapibus pellentesque cursus.',
+         languages: ['JavaScript', 'HTML', 'CSS'],
+         link: 'https://github.com/lernantino/taskinator',
+         feature: true,
+         confirmAddProject: true,
+      },
+      {
+         name: 'Taskmaster Pro',
+         description:
+            'Duis consectetur nunc nunc. Morbi finibus non sapien nec pharetra. Fusce nec dignissim orci, ac interdum ipsum. Morbi mattis justo sed commodo pellentesque. Nulla eget fringilla nulla. Integer gravida magna mi, id efficitur metus tempus et. Nam fringilla elit dapibus pellentesque cursus.',
+         languages: ['JavaScript', 'jQuery', 'CSS', 'HTML', 'Bootstrap'],
+         link: 'https://github.com/lernantino/taskmaster-pro',
+         feature: false,
+         confirmAddProject: true,
+      },
+      {
+         name: 'Robot Gladiators',
+         description: 'Duis consectetur nunc nunc. Morbi finibus non sapien nec pharetra. Fusce nec dignissim orci, ac interdum ipsum. Morbi mattis justo sed commodo pellentesque.',
+         languages: ['JavaScript'],
+         link: 'https://github.com/lernantino/robot-gladiators',
+         feature: false,
+         confirmAddProject: false,
+      },
+   ],
+};
+
+const pageHTML = generatePage(mockData);
+
+// promptUser()
+//    .then(promptProject)
+//    .then((portfolioData) => {
+fs.writeFile('index.html', pageHTML, (err) => {
+   if (err) throw new Error(err);
+   console.log('Portfolio complete! Check out index.html to see the output!');
+});
+//    });
