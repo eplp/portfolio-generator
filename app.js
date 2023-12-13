@@ -209,7 +209,7 @@ const mockData = {
    name: 'Lernantino',
    github: 'lernantino',
    confirmAbout: true,
-   about: '',
+   about: 'Duis consectetur nunc nunc. Morbi finibus non sapien nec pharetra. Fusce nec dignissim orci, ac interdum ipsum. Morbi mattis justo sed commodo pellentesque. Nulla eget fringilla nulla. Integer gravida magna mi, id efficitur metus tempus et. Nam fringilla elit dapibus pellentesque cursus.',
    projects: [
       {
          name: 'Run Buddy',
